@@ -202,17 +202,17 @@ public class MHLView {
         // 验证餐桌是否为预定状态
         if(!diningTableService.getDiningTableById(diningTableId).getState().equals("已经预定")){
             System.out.println("================该餐桌不是预定状态===============");
-        }
-
-        char key = Utility.readConfirmSelection();
-        if(key == 'Y'){
-            if(diningTableService.updateDiningTableToFree(diningTableId)){
-                System.out.println("================取消预订成功===============");
-            } else {
-                System.out.println("================取消预订失败===============");
-            }
         } else {
-            System.out.println("================取消取消预订===============");
+            char key = Utility.readConfirmSelection();
+            if(key == 'Y'){
+                if(diningTableService.updateDiningTableToFree(diningTableId)){
+                    System.out.println("================取消预订成功===============");
+                } else {
+                    System.out.println("================取消预订失败===============");
+                }
+            } else {
+                System.out.println("================取消取消预订===============");
+            }
         }
     }
 
